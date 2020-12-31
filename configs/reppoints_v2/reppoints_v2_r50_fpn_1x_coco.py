@@ -25,7 +25,7 @@ model = dict(
         norm_cfg=norm_cfg),
     bbox_head=dict(
         type='RepPointsV2Head',
-        num_classes=80,
+        num_classes=5,
         in_channels=256,
         feat_channels=256,
         point_feat_channels=256,
@@ -72,7 +72,7 @@ train_cfg = dict(
         pos_weight=-1,
         debug=False),
     refine=dict(
-        assigner=dict(type='ATSSAssigner', topk=9),
+        assigner=dict(type='ATSSAssigner', topk=3),
         allowed_border=-1,
         pos_weight=-1,
         debug=False))
@@ -92,7 +92,7 @@ train_pipeline = [
     dict(type='RandomFlip', flip_ratio=0.5),
     dict(type='Normalize', **img_norm_cfg),
     dict(type='Pad', size_divisor=32),
-    dict(type='LoadRPDV2Annotations', num_classes=80),
+    dict(type='LoadRPDV2Annotations', num_classes=5),
     dict(type='RPDV2FormatBundle'),
     dict(type='Collect', keys=['img', 'gt_bboxes', 'gt_labels', 'gt_sem_map', 'gt_sem_weights']),
 ]

@@ -226,7 +226,7 @@ class RepPointsV2Detector(SingleStageDetector):
 
         det_bboxes = []
         det_labels = []
-        for j in range(80):
+        for j in range(5): ######  NUM_CLASSES
             inds = (merged_labels == j).nonzero().squeeze(1)
 
             scores_j = merged_bboxes[inds, 4]

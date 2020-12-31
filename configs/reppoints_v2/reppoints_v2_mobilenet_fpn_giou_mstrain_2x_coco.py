@@ -5,6 +5,7 @@ model = dict(
         _delete_=True,
         type='MobileNetV2',
         frozen_stages=-1,
-        norm_cfg=dict(type='SyncBN')),
+        norm_cfg=dict(type='BN')),
+        # norm_cfg=dict(type='SyncBN')),
     neck=dict(
         in_channels=[24, 32, 96, 320]))

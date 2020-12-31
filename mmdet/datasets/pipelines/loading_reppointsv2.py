@@ -24,7 +24,7 @@ class LoadRPDV2Annotations(object):
             See :class:`mmcv.fileio.FileClient` for details.
             Defaults to ``dict(backend='disk')``.
     """
-    def __init__(self, num_classes=80):
+    def __init__(self, num_classes=5):
         super(LoadRPDV2Annotations, self).__init__()
         self.num_classes = num_classes
 
